@@ -3,9 +3,24 @@
 {% load static %}
 
 {% block titulo %}
-<h1 class="mb-5">ESTE TITULO VIENE DE PROFES</h1>
+<h1 class="mb-5">LISTADO DE PROFESORES</h1>
 {% endblock %}
 
 {% block contenido_que_cambia %}
-<h1>ESTE ES EL CONTENIDO DE PROFES!</h1>
+
+<ul>
+    <h1>LISTADO DE PROFES</h1>
+
+    {% for profesor in profesores %}
+    <li>{{ profesor.nombre }} {{ profesor.apellido }} - {{ profesor.profesion }}</li>
+
+    <a class="btn btn-danger" href="{% url 'eliminarProfesor'  profesor.id  %}">Eliminar </a>
+    <a class="btn btn-success" href="{% url 'editarProfesor'  profesor.id  %}">Editar</a>
+    {% endfor %}
+
+
+</ul>
+
+<h2>{{ mensaje }}</h2>
+<a class="btn btn-primary" href="{% url 'profeFormulario'  %}">Agregar Profesor</a>
 {% endblock %}
