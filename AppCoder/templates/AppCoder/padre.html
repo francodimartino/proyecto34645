@@ -29,6 +29,7 @@
                 <a class="btn btn-primary" href="{% url 'entregables' %}">Entregables</a>
                 <a class="btn btn-primary" href="{% url 'cursos' %}">Cursos</a>
                 <p>Bienvenido: {{ user.username }}</p>
+                <img src="{{ avatar }}" alt="">
                 <a class="btn btn-danger" href="{% url 'logout' %}">CERRAR SESION</a>
                 {% else %}
                 <a class="btn btn-primary" href="{% url 'register' %}">REGISTRO</a>
